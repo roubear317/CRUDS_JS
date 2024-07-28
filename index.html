@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="bg-warning">
+    <div class="container mt-5">
+      <h1 class="text-center">Bookmaker</h1>
+
+      <label for="site_Name" class="mt-5">Site Name</label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="site_Name"
+        placeholder="Bookmark name"
+        oninput="ValidatorForInput('site_Name','name','validmss1')"
+      />
+      <div class="alert alert-danger my-2 d-none" id="validmss1">please enter this pattern [a-z] or [A-Z] not numbers</div>
+      <label for="site_Url" class="mt-5">Site Url</label>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="site_Url"
+        placeholder="Website URL"
+        oninput="ValidatorForInput('site_Url','url','validmss2')"
+      />
+      <div class="alert alert-danger my-2 d-none" id="validmss2">please enter this pattern start with [http:// or https://] and end with [.com or .org]  </div>
+      <button
+        onclick="addWebSites()"
+        class="btn btn-info w-25 mt-3"
+        id="addBtn"
+      >
+        Add
+      </button>
+      <button
+        onclick="updateProduct()"
+        class="btn btn-info w-25 mt-3 d-none"
+        id="UpdateBtn"
+      >
+        Update
+      </button>
+      <input
+        type="text"
+        class="form-control mt-2"
+        id="site_Search"
+        placeholder="Search Website"
+        oninput="searchWeb()"
+      />
+    </div>
+    <div
+      class="toast"
+      id="toaster"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="toast-body">
+        Thank you for your Add
+        <div class="mt-2 pt-2 border-top">
+          <!-- <button type="button" class="btn btn-primary btn-sm">Take action</button> -->
+          <button
+            type="button"
+            class="btn btn-secondary btn-sm"
+            data-bs-dismiss="toast"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container mt-5">
+      <table class="table table-bordered border-primary table-success">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">second</th>
+            <th scope="col">operations</th>
+          </tr>
+        </thead>
+        <tbody id="showBody"></tbody>
+      </table>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
